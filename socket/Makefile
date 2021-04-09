@@ -3,13 +3,12 @@ SERVER = server
 CLIENT = client
 ADDR	=	127.0.0.1
 
-all	: $(SERVER) $(CLIENT)
-
+all	: 
+	clang client.c  -o client_exec
+	clang server.c  -o server_exec
 
 $(SERVER)	:
-	clang server.c 
-	./a.out $(PORT)
+	./server_exec $(PORT)
 
 $(CLIENT)	:
-	clang client.c 
-	./a.out $(ADDR) $(PORT)
+	./client_exec $(ADDR) $(PORT)
